@@ -6,7 +6,6 @@ function pedido(req, res) {
       if(err) {
         res.json(err);
       }
-      //console.log("----pendientes----",pedi)
       res.render('pages/pedidos', { pedi,email: req.session.email });
     });
   });
@@ -18,7 +17,6 @@ function terminado(req, res) {
       if(err) {
         res.json(err);
       }
-      //console.log("--------",pedi)
       res.render('pages/terminado', { pedi,email: req.session.email });
     });
   });
