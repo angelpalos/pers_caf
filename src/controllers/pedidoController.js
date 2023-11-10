@@ -85,7 +85,7 @@ function detalle_agr(req, res) {
       conn.query('SELECT sum(cantidad*precio) AS subtotal FROM detalle WHERE folio = ?',[datos.folio],(err,subtotal)=>{
         
         res.render('pages/detalle_agrega', {deta, folio:datos.folio, subtotal,email: req.session.email});
-      })
+      }) 
     })
   })
 }
