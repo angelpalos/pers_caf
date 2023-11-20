@@ -54,6 +54,10 @@ app.use(myconnection(mysql,{
 
 //define los parametros para crear una sesión
 app.use(session({
+    cookie:{
+        secure: true,
+        maxAge:60000
+    },
     secret: 'secret',
     resave: true,
     saveUninitialized: true 
