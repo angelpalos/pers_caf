@@ -4,6 +4,7 @@ const { engine } = require('express-handlebars');
 const myconnection = require('express-myconnection');
 const mysql = require('mysql2');
 const session = require('express-session');
+const MemoryStore = require('memorystore')(session);
 const bodyParser = require('body-parser');
 const { Session } = require('express-session');
 
@@ -54,10 +55,10 @@ app.use(myconnection(mysql,{
 
 //define los parametros para crear una sesión
 app.use(session({
-    cookie:{
-        secure: true,
-        maxAge:60000
-    },
+    cookie: { maxAge: 86400000 },
+    store: new MemoryStore({
+      checkPeriod: 86400000 // prune expired entries every 24h
+    }),
     secret: 'secret',
     resave: true,
     saveUninitialized: true 
