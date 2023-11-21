@@ -75,7 +75,7 @@ function auth(req, res) {
             } else {
               console.log('entro match');
               console.log(userData);
-              console.log(userData[0].Id_rol);
+              console.log(userData.Id_rol);
               req.session.loggedin = true;
               req.session.name = element.name;
               req.session.email = element.email;
