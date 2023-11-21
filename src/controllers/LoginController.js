@@ -64,23 +64,30 @@ function auth(req, res) {
   req.getConnection((err, conn) => {
     conn.query('SELECT * FROM users WHERE email = ?', [data.email], (err, userData) => {
       if(userData.length > 0) {
+        console.log('entro');
+
         userData.forEach(element => {
           bcrypt.compare(data.password,element.password, (err,isMatch) => {
             if(!isMatch){
+              console.log('entro no match');
               //console.log("out",userData);
               res.render('login/index', {error: '¡La contraseña o el correo electrónico es Incorrecto!'});
             } else {
+              console.log('entro match');
               //console.log(userData[0].Id_rol);
               req.session.loggedin = true;
               req.session.name = element.name;
               req.session.email = element.email;
               if(userData[0].Id_rol == "Administrador"){
+                console.log('entro admin');
                 res.render('login/index', {error: '¡Esa cuenta pertenece a un administrador, porfavor usa una cuenta de personal de cafetería!'});
                 
               }else if (userData[0].Id_rol == "Caja"){
+                console.log('entro caja');
                 res.render('home',{name: req.session.name,email: req.session.email ,rol_Caja:userData[0].Id_rol});                 
 
               }else if (userData[0].Id_rol == "Cocina"){
+                console.log('entro cocina');
                 res.render('home',{name: req.session.name,email: req.session.email ,rol_Cocina:userData[0].Id_rol});
               }
               
