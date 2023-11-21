@@ -59,7 +59,7 @@ function auth(req, res) {
 	//let email = req.body.email;
 	//let password = req.body.password;
   
-  //console.log(req.session);
+  console.log('entro');
 
   req.getConnection((err, conn) => {
     conn.query('SELECT * FROM users WHERE email = ?', [data.email], (err, userData) => {
