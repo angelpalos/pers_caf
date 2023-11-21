@@ -10,7 +10,7 @@ const detalleController = require('../controllers/detalleController');
 const router = express.Router();
 
 //Define las rutas que tendran
-router.get('/login', LoginController.index);
+router.get('/login_i', LoginController.index);
 router.get('/register', LoginController.register);
 router.post('/register', LoginController.storeUser);
 router.post('/login', LoginController.auth);

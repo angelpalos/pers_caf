@@ -91,7 +91,7 @@ app.get('/', (req,res) => {
         })   
 
     } else {
-        res.redirect('/login');
+        res.redirect('/login_i');
     }
 })
 
