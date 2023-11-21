@@ -59,7 +59,7 @@ function auth(req, res) {
 	//let email = req.body.email;
 	//let password = req.body.password;
   
-  console.log('entro');
+  //console.log('entro');
 
   req.getConnection((err, conn) => {
     conn.query('SELECT * FROM users WHERE email = ?', [data.email], (err, userData) => {
@@ -69,27 +69,27 @@ function auth(req, res) {
         userData.forEach(element => {
           bcrypt.compare(data.password,element.password, (err,isMatch) => {
             if(!isMatch){
-              console.log('entro no match');
+              //console.log('entro no match');
               //console.log("out",userData);
               res.render('login/index', {error: '¡La contraseña o el correo electrónico es Incorrecto!'});
             } else {
-              console.log('entro match');
-              console.log(userData);
-              console.log(userData.id_rol);
+              //console.log('entro match');
+              //console.log(userData);
+              //console.log(userData.id_rol);
               req.session.loggedin = true;
               req.session.name = element.name;
               req.session.email = element.email;
               if(userData[0].id_rol == "Administrador"){
-                console.log('entro admin');
+                //console.log('entro admin');
                 res.render('login/index', {error: '¡Esa cuenta pertenece a un administrador, porfavor usa una cuenta de personal de cafetería!'});
                 
               }else if (userData[0].id_rol == "Caja"){
-                console.log('entro caja');
-                res.render('home',{name: req.session.name,email: req.session.email ,rol_Caja:userData[0].Id_rol});                 
+                //console.log('entro caja');
+                res.render('home',{name: req.session.name,email: req.session.email ,rol_Caja:userData[0].id_rol});                 
 
               }else if (userData[0].id_rol == "Cocina"){
-                console.log('entro cocina');
-                res.render('home',{name: req.session.name,email: req.session.email ,rol_Cocina:userData[0].Id_rol});
+                //console.log('entro cocina');
+                res.render('home',{name: req.session.name,email: req.session.email ,rol_Cocina:userData[0].id_rol});
               }
               
             }

@@ -81,11 +81,11 @@ app.get('/', (req,res) => {
         //console.log("Email: ",req.session);
         req.getConnection((err, conn) => {
             conn.query('SELECT * FROM users WHERE email = ?', [email], (err, userData)=>{
-            if (userData[0].Id_rol == "Caja"){
-                res.render('home',{name: req.session.name,email: req.session.email, rol_Caja:userData[0].Id_rol});                 
+            if (userData[0].id_rol == "Caja"){
+                res.render('home',{name: req.session.name,email: req.session.email, rol_Caja:userData[0].id_rol});                 
 
-            }else if (userData[0].Id_rol == "Cocina"){
-                res.render('home',{name: req.session.name,email: req.session.email, rol_Cocina:userData[0].Id_rol});
+            }else if (userData[0].id_rol == "Cocina"){
+                res.render('home',{name: req.session.name,email: req.session.email, rol_Cocina:userData[0].id_rol});
             }
             })
         })   
