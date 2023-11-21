@@ -74,6 +74,7 @@ function auth(req, res) {
               res.render('login/index', {error: '¡La contraseña o el correo electrónico es Incorrecto!'});
             } else {
               console.log('entro match');
+              console.log(userData);
               console.log(userData[0].Id_rol);
               req.session.loggedin = true;
               req.session.name = element.name;
