@@ -107,7 +107,7 @@ function logout(req, res) {
   if (req.session.loggedin == true) {
     req.session.destroy();
   }
-  res.redirect('/login_i');
+  res.render('login/index');
 }
 
 //Renderiza la pagina de Personal y redirige hacia ella
