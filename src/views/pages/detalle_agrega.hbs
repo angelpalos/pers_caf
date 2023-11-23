@@ -1,25 +1,21 @@
 <style>
     .precio{
         position: relative;
-        
         margin-top:  -10%;
-    }
-    .cantidad{
-        
+
+    }.cantidad{
         position: relative;
         bottom: -38px;
 
-    }
-    .name{
+    }.name{
         position: relative;
-        left: 20px;
+        left: 60px;
         
-    }
-    .detalle{
+    }.detalle{
         position: relative;
         bottom: -40px;
-    }
-    div.card{
+
+    }div.card{
         box-shadow: 8px 8px 30px 4px;
     }
     .actions{
@@ -57,16 +53,15 @@
                         <h4 class="text-start fs-3">Detalle:</h4>
                     </div>
                     {{#each deta}}
-                        <div class="cantidad">
-                            <h4 class="text-start">{{cantidad}}</h4>
-                        </div>
-                        <div class="name">
-                            <h4 class="text-start">{{name}}</h4>
-                        </div>
-                        
+                    <div class="cantidad">
+                        <h4 class="text-start">{{cantidad}}     {{name}}</h4> <br>
+                    </div>
                     <div class="precio">
-                        <h4 class="text-end fs-3">Precio c/u: {{precio}}</h4>
-                    </div> <br>
+                        <h4 class="text-end">Precio c/u: {{precio}}</h4>
+                    </div>
+                    
+                    <br>
+                    
                     <div class="actions">
                         <div class="menos">
                             <form action="/resta" method="post" class="mx-2">

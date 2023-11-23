@@ -18,7 +18,8 @@ router.get('/logout', LoginController.logout);
 
 router.post('/detalle', pedidoController.detalle);
 router.post('/detalle_agrega', pedidoController.detalle_agr);
-router.get('/pedidos', pedidoController.pedido);
+router.post('/pedidos', pedidoController.pedido);
+router.get('/en_proceso', pedidoController.en_proceso);
 router.get('/terminado', pedidoController.terminado);
 router.get('/pagado', pedidoController.pagado);
 router.get('/entregado', pedidoController.entregado);

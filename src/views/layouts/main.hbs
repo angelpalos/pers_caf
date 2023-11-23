@@ -51,20 +51,27 @@
         </li>
 
         {{#if rol_Cocina}}
+          <form action="/pedidos" method="post">
           <li class="nav-item px-4">
             <!--boton para ver los pedidos-->
-            <a href="/pedidos" class="btn btn-outline-primary btn-lg mt-2">Pendientes</a>
+            <input type="text" name="email" value="{{email}}" hidden>
+            <input type="submit" class="btn btn-outline-primary btn-lg mt-2" value="Pendientes">
           </li>
+          </form>
           <li class="nav-item px-4">
-            <!--boton para ver los pedidos pagados-->
-            <a href="/pagado" class="btn btn-outline-primary btn-lg mt-2">Por Entregar</a>
-          </li>
+            <!--boton para ver los pedidos-->
+            <a href="/en_proceso" class="btn btn-outline-primary btn-lg mt-2">En proceso</a>
+          </li>      
         
         {{/if}}
 
         {{#if rol_Caja}}
           <li class="nav-item px-4"> 
           <a href="/terminado" class="btn btn-outline-primary btn-lg h-12 mt-2">Por Pagar</a>
+          </li>
+          <li class="nav-item px-4">
+            <!--boton para ver los pedidos pagados-->
+            <a href="/pagado" class="btn btn-outline-primary btn-lg mt-2">Por Entregar</a>
           </li>
         {{/if}}
         <!--<img class="img-fluid" src="https://cdn.icon-icons.com/icons2/2483/PNG/512/user_icon_149851.png" width="60px" height="60px" />-->

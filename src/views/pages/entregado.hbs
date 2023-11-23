@@ -20,8 +20,8 @@
           <!--informacion en el encabezado de la tabla-->
           <tr class="">
             <th class="fs-5">Numero de Pedido</th>
-
             <th class="fs-5">Status del Pedido</th>
+            <th class="fs-5">Atendido por</th>
 
             <th class="fs-5">Detalle</th>
           </tr>
@@ -32,8 +32,9 @@
           <tr>
             <td class="fs-3" id="folio">{{folio}}</td>
             <td class="fs-3">{{tip_status}}</td>
+            <td class="fs-3">{{corre_emp}}</td>
             <td>
-              <form class="mx-2" action="/detalle_e" method="post">
+              <form class="mx-2" action="/detalle" method="post">
                 <input type="hidden" value="{{folio}}" name="folio" id="folio">
                 <button class="btn btn-dark h-10 mt-1" type="submit">
                   <h5>Detalle del Pedido</h5>

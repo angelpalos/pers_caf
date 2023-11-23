@@ -15,14 +15,14 @@
 
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-white  shadow-xl sm:rounded-lg mt-12">
-            {{#if pedi}}
+      {{#if pedi}}
       <table class="mt-5 table">
         <thead class="table-dark">
           <!--informacion en el encabezado de la tabla-->
           <tr class="">
             <th class="fs-5">Numero de Pedido</th>
-
             <th class="fs-5">Status del Pedido</th>
+            <th class="fs-5">Atendido por</th>
 
             <th class="fs-5">Detalle</th>
           </tr>
@@ -33,6 +33,7 @@
           <tr>
             <td class="fs-3" id="folio">{{folio}}</td>
             <td class="fs-3">{{tip_status}}</td>
+            <td class="fs-3">{{name}} {{ap_paterno}}</td>
             <td>
               <form class="mx-2" action="/detalle" method="post">
                 <input type="hidden" value="{{folio}}" name="folio" id="folio">

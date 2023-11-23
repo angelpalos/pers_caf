@@ -55,10 +55,6 @@ app.use(myconnection(mysql,{
 
 //define los parametros para crear una sesión
 app.use(session({
-    cookie: { maxAge: 86400000 },
-    store: new MemoryStore({
-      checkPeriod: 86400000 // prune expired entries every 24h
-    }),
     secret: 'secret',
     resave: true,
     saveUninitialized: true 
@@ -81,11 +77,11 @@ app.get('/', (req,res) => {
         //console.log("Email: ",req.session);
         req.getConnection((err, conn) => {
             conn.query('SELECT * FROM users WHERE email = ?', [email], (err, userData)=>{
-            if (userData[0].id_rol == "Caja"){
-                res.render('home',{name: req.session.name,email: req.session.email, rol_Caja:userData[0].id_rol});                 
+            if (userData[0].Id_rol == "Caja"){
+                res.render('home',{name: req.session.name,email: req.session.email, rol_Caja:userData[0].Id_rol});                 
 
-            }else if (userData[0].id_rol == "Cocina"){
-                res.render('home',{name: req.session.name,email: req.session.email, rol_Cocina:userData[0].id_rol});
+            }else if (userData[0].Id_rol == "Cocina"){
+                res.render('home',{name: req.session.name,email: req.session.email, rol_Cocina:userData[0].Id_rol});
             }
             })
         })   
